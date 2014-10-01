@@ -7,7 +7,7 @@ gemfile_code_dir="$gemfile_dir/code"
 echo
 echo "Testing with $gemfile..."
 export BUNDLE_GEMFILE=$gemfile
-bundle install
+bundle update
 result="$(bundle exec cucumber --strict --require $gemfile_code_dir test/features)"
 
 status=$?
