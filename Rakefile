@@ -1,1 +1,4 @@
-require "bundler/gem_tasks"
+desc 'Run all tests'
+task 'default' do
+  sh 'test/all'
+end

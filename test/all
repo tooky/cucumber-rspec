@@ -1,0 +1,14 @@
+#!/bin/bash
+exit_status=0
+gemfile_dirs=$(ls -d -- test/rspec-*)
+echo $gemfile_dirs
+for gemfile_dir in $gemfile_dirs
+do
+  ./test/run $gemfile_dir
+  if [ $? -ne 0 ]
+  then
+    exit_status=1
+  fi
+done
+
+exit $exit_status
