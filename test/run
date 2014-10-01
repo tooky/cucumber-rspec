@@ -2,13 +2,12 @@
 
 gemfile_dir=$1
 gemfile="$gemfile_dir/Gemfile"
-gemfile_code_dir="$gemfile_dir/code"
 
 echo
 echo "Testing with $gemfile..."
-export BUNDLE_GEMFILE=$gemfile
+cd $gemfile_dir
 bundle update
-result="$(bundle exec cucumber --strict --require $gemfile_code_dir test/features)"
+result="$(bundle exec cucumber --strict --require code ../features)"
 
 status=$?
 if [[ $status -ne 0 ]]; then
@@ -19,7 +18,9 @@ if [[ $status -ne 0 ]]; then
   echo "--"
   echo "$result"
   echo "--"
+  cd -
   exit 1
 fi
 echo "=> PASS"
+cd -
 
