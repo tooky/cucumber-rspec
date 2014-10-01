@@ -1,13 +1,13 @@
-# Cucumber::Rspec
+# Cucumber::RSpec
 
-TODO: Write a gem description
+Adds RSpec expectations to your cucumber world.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'cucumber-rspec'
+gem 'cucumber-rspec', require: false, groups: [:test]
 ```
 
 And then execute:
@@ -20,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use rspec expectations in your cucumber step definitions add the following
+line to your `support/env.rb`.
+
+```ruby
+require "cucumber-rspec"
+```
 
 ## Contributing
 
