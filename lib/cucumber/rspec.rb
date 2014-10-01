@@ -1,7 +1,3 @@
 require "cucumber/rspec/version"
-
-module Cucumber
-  module Rspec
-    # Your code goes here...
-  end
-end
+require 'rspec/expectations'
+World(::RSpec::Matchers)
